@@ -109,12 +109,12 @@ def print_notes(notes_list):
     if not notes_list:
         print('Заметок нет, файл пуст!')
     else:
-        sorted(notes_list, key = note.split(',')[3].split(':')[1])
+        notes_list.sort(key=sort_key_date)
         for i in range(len(notes_list)):
             print(f'{i+1}. {notes_list[i]}')
 
-def sort_key_date(notes_list):
-    return 
+def sort_key_date(note):
+    return note.split(',')[3].split(':')[1]
 
 def menu_main_info(option=None):
     menu_main_list = ['1. Показать все заметки',
